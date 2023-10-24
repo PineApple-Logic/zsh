@@ -28,6 +28,10 @@ sudo apt install zsh-syntax-highlighting autojump zsh-autosuggestions
 ```bash
 yay -S zsh-syntax-highlighting autojump zsh-autosuggestions
 ```
+
+### Fonts
+
+Download and install the fonts from [here](https://github.com/romkatv/powerlevel10k#fonts)
   
 Finish the conversion by changing your user in /etc/passwd to /bin/zsh instead of /bin/bash
 
