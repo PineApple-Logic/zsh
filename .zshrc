@@ -31,9 +31,25 @@ if [ ! -d ".fzf" ]; then
     ~/.fzf/install
 fi
 
-# Download lsb, if it's not there yey
+# Download lsb, if it's not there
 if [ ! -f "/usr/bin/lsd" ]; then
+    echo 'installing lsb'
     sudo apt install lsd
+fi
+
+# Download tmux, if it's not there
+if [ ! -f "/usr/bin/tmux" ]; then
+    echo 'installing tmux'
+    sudo apt install tmux
+    while true; do
+        read -r -q "yn?Do you wish to use a preconfiguration for tmux (Y/N)"
+            case $yn in
+                [Yy]* ) wget https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/master/.tmux.conf ;;
+                [Nn]* ) break ;;
+            * ) echo "Please answer Y or N." ;;
+            esac
+        break
+    done
 fi
 
 # Source/Load zinit
