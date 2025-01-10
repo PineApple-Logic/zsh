@@ -1,6 +1,5 @@
-#
-# # ex - archive extractor
-# # usage: ex <file>
+## ex - archive extractor
+# usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
@@ -9,7 +8,7 @@ ex ()
       *.tar.gz)    tar xzf $1   ;;
       *.tar.xz)    tar xJf $1   ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
@@ -24,13 +23,14 @@ ex ()
   fi
 }
 
-export EDITOR=vim
+export EDITOR=nano
+export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/home/pineapplelogic/.local/pipx/venvs/"
 
-alias pacman-update='sudo pacman-mirrors --geoip'
-
-alias ls='ls'
+## ls aliases
 alias ll='ls -l'
-# ls, the common ones I use a lot shortened for rapid fire usage
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
@@ -40,57 +40,27 @@ alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
+alias batcat='cat'
 
-alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+## Hackers aliases
+alias workspace='cp -fr /home/pineapplelogic/Documents/Notes/Templates/Pen-200/Target/* ./ && cp -fr /home/pineapplelogic/Documents/Notes/Templates/Pen-200/Target/.obsidian ./ && export wg=$(pwd)'
+alias offsec='sudo openvpn /home/pineapplelogic/.VPN/universal.ovpn'
+alias htb='sudo openvpn /home/pineapplelogic/.VPN/lab_PineAppleHack.ovpn'
+alias tryhackme='sudo openvpn /home/pineapplelogic/.VPN/PineAppleLogic.ovpn'
+alias autorecon-ng='sudo $(which autorecon)'
+alias winencode='python3 /home/pineapplelogic/Documents/Scripts/Windows/my_scripts/encode.py'
+alias linencode='python3 /home/pineapplelogic/Documents/Scripts/linux/my_scripts/encode.py'
+alias st='subl'
+# alias listener='bash -c "rlwrap -CAr ncat -lvnp"' # Replaced with function
+alias webserver='uploadserver'
+alias nmap-scan='sudo grc nmap -T4 -p - -sC -sV -sS -vv --open -oN nmap-TCP-scan.txt'
+alias ligolo-startup='sudo ip tuntap add user pineapplelogic mode tun ligolo && sudo ip link set ligolo up'
+alias ligolo-ng='sudo /opt/ligolo/proxy -selfcert'
+alias winscripts='cd ~/Documents/Scripts/Windows'
+alias upgrade-shell='`stty size;stty raw -echo;fg`'
+alias kerbrute='/home/pineapplelogic/go/bin/kerbrute'
+alias bloodhound='cd /opt/BloodHound && sudo docker-compose up'
 
-alias grep='grep --color'
-alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-alias t='tail -f'
-
-# Command line head / tail shortcuts
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g L="| less"
-alias -g M="| most"
-alias -g LL="2>&1 | less"
-alias -g CA="2>&1 | cat -A"
-alias -g NE="2> /dev/null"
-alias -g NUL="> /dev/null 2>&1"
-alias -g P="2>&1| pygmentize -l pytb"
-
-alias dud='du -d 1 -h'
-alias duf='du -sh *'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
-
-alias h='history'
-alias hgrep="fc -El 0 | grep"
-alias help='man'
-alias p='ps -f'
-alias sortnr='sort -n -r'
-alias unexport='unset'
-
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias vim='vim'
-alias vi='vim'
-alias gds-start='sudo systemctl start openvpn-client@gds'
-alias gds-stop='sudo systemctl stop openvpn-client@gds'
-gitpush() {
-    git add .
-    git commit -m "$*"
-    git pull
-    git push
-}
-gitupdate() {
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/github
-    ssh -T git@github.com
-}
-alias gp=gitpush
-alias gu=gitupdate
-alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+## Hackers Verables
+export rockyou='/usr/share/wordlists/rockyou.txt'
