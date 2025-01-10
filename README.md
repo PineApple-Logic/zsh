@@ -1,4 +1,4 @@
-# zsh
+# zsh + tmux
 
 My ZSH Config
 
