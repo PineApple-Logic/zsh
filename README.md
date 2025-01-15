@@ -5,29 +5,13 @@ My ZSH Config
 ## Setup
 
 ```
-touch "$HOME/.cache/zshhistory"
-#-- Setup Alias in $HOME/zsh/aliasrc
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+git clone https://github.com/PineApple-Logic/zsh.git
+cd zsh
+mv .zshrc
+zsh
 ```
 
 ## Get Dependencies
-
-- zsh-syntax-highlighting - syntax highlighting for ZSH in standard repos
-- autojump - jump to directories with j or jc for child or jo to open in file manager
-- zsh-autosuggestions - Suggestions based on your history
-
-### Debian Dependencies
-
-```bash
-sudo apt install zsh-syntax-highlighting autojump zsh-autosuggestions
-```
-
-### Arch Dependencies
-
-```bash
-yay -S zsh-syntax-highlighting autojump zsh-autosuggestions
-```
 
 ### Fonts
 
