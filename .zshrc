@@ -158,7 +158,6 @@ function ensure_program_installed() {
 }
 
 ensure_program_installed "lsd" "sudo apt install -y lsd"
-ensure_program_installed "fzf" "git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install"
 ensure_program_installed "pyenv" "curl https://pyenv.run | bash"
 
 # Preconfigure `tmux` with optional configuration
