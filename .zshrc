@@ -305,7 +305,7 @@ else
 fi
 
 # Log when the shell session starts (useful for audit or debugging purposes)
-echo "Session started at $(date)" >> ~/.zsh_session_log
+# echo "Session started at $(date)" >> ~/.zsh_session_log
 
 # Comment with versioning note for future reference
 # This .zshrc was last updated on: 2025/01/15
