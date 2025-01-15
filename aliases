@@ -1,5 +1,5 @@
-## ex - archive extractor
-# usage: ex <file>
+## ext - archive extractor
+# usage: ext <file>
 ext ()
 {
   if [ -f $1 ] ; then
