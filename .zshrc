@@ -310,9 +310,6 @@ echo "Session started at $(date)" >> ~/.zsh_session_log
 # Comment with versioning note for future reference
 # This .zshrc was last updated on: 2025/01/15
 
-# Done!
-echo "Welcome to your enhanced Zsh environment! 🚀"
-
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
