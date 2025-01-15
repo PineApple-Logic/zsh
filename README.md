@@ -8,7 +8,8 @@ My ZSH Config
 git clone https://github.com/PineApple-Logic/zsh.git
 cd zsh
 mv .zshrc
-zsh
+zsh # this will install most of the depedances (fzf, lsd, pyenv, zinit as well as zsh plugins)
+tmux
 ```
 
 ## Get Dependencies
