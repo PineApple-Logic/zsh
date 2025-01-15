@@ -41,6 +41,3 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 alias batcat='cat'
-
-## Hackers Verables
-export rockyou='/usr/share/wordlists/rockyou.txt'
