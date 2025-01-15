@@ -38,8 +38,8 @@ install_if_missing lsd
 
 # Fzf setup
 if [ ! -d "$HOME/.fzf" ]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install --all
+  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  $HOME/.fzf/install --all
 fi
 
 # Pyenv setup
@@ -54,10 +54,10 @@ eval "$(pyenv init -)"
 setopt autocd correct interactivecomments magicequalsubst nonomatch notify numericglobsort promptsubst
 WORDCHARS=${WORDCHARS//\/}
 PROMPT_EOL_MARK=""
-autoload -Uz compinit && compinit -d ~/.cache/zcompdump
+autoload -Uz compinit && compinit -d $HOME/.cache/zcompdump
 
 # History configuration
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify share_history hist_save_no_dups hist_find_no_dups
@@ -67,10 +67,10 @@ alias history="history 0"
 configure_prompt() {
   case "$PROMPT_ALTERNATIVE" in
     twoline)
-      PROMPT='%F{blue}┌──[%n@%m]%F{reset}%~\n%F{blue}└─%#%F{reset} '
+      PROMPT='%F{blue}┌──[%n@%m]%F{reset}%$HOME\n%F{blue}└─%#%F{reset} '
       ;;
     oneline)
-      PROMPT='%F{blue}[%n@%m]%F{reset}%~ %# '
+      PROMPT='%F{blue}[%n@%m]%F{reset}%$HOME %# '
       ;;
   esac
 }
@@ -81,8 +81,8 @@ configure_prompt
 bindkey -e
 bindkey ' ' magic-space
 bindkey '^U' backward-kill-line
-bindkey '^[[3;5~' kill-word
-bindkey '^[[3~' delete-char
+bindkey '^[[3;5$HOME' kill-word
+bindkey '^[[3$HOME' delete-char
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
@@ -92,7 +92,7 @@ alias grep='grep --color=auto'
 
 # Terminal title
 precmd() {
-  print -Pn "\e]0;%n@%m: %~\a"
+  print -Pn "\e]0;%n@%m: %$HOME\a"
 }
 
 # Completion settings
@@ -106,7 +106,7 @@ zstyle ':completion:*' verbose true
 zstyle 'fzf-tab:_complete:cd' fzf-preview 'ls --color $realpath'
 
 # History configurations
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=200000
 setopt hist_expire_dups_first  # Delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -125,7 +125,7 @@ TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
 # Ensure color support for `ls`, `less`, `man`, etc., and define aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
     export LS_COLORS="$LS_COLORS:ow=30;44:" # Fix color for 777-permission directories
 
     alias ls='lsd --color=auto'
@@ -161,15 +161,15 @@ ensure_program_installed "lsd" "sudo apt install -y lsd"
 ensure_program_installed "pyenv" "curl https://pyenv.run | bash"
 
 # Preconfigure `tmux` with optional configuration
-if command -v tmux &>/dev/null && [ ! -f ~/.tmux.conf ]; then
+if command -v tmux &>/dev/null && [ ! -f $HOME/.tmux.conf ]; then
   install_if_missing tmux
   ensure_program_installed "tmux" "sudo apt install -y tmux"
   echo "Installing tmux Plugin Manager (TPM)"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
     while true; do
         read -r -p "Do you wish to use a preconfiguration for tmux? [y/N]: " yn
         case $yn in
-            [Yy]*) wget -O ~/.tmux.conf https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/.tmux.conf; break ;;
+            [Yy]*) wget -O $HOME/.tmux.conf https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/.tmux.conf; break ;;
             [Nn]*) break ;;
             *) echo "Please answer yes or no." ;;
         esac
@@ -177,15 +177,15 @@ if command -v tmux &>/dev/null && [ ! -f ~/.tmux.conf ]; then
 fi
 
 # Apply `Powerlevel10k` configuration
-[[ ! -f ~/.p10k.zsh ]] && p10k configure
+[[ ! -f $HOME/.p10k.zsh ]] && p10k configure
 
 # Final environment configuration
 export EDITOR="vim"
 export VISUAL="vim"
 
 # Load additional configurations if present
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-[ -f ~/.zsh_functions ] && source ~/.zsh_functions
+[ -f $HOME/.zsh_aliases ] && source $HOME/.zsh_aliases
+[ -f $HOME/.zsh_functions ] && source $HOME/.zsh_functions
 
 # Clean up temporary variables
 unset ZINIT_HOME
@@ -206,7 +206,7 @@ fi
 # Custom key bindings for better navigation and productivity
 bindkey '^[[H' beginning-of-line  # Home key to move to the start of the line
 bindkey '^[[F' end-of-line        # End key to move to the end of the line
-bindkey '^[[3~' delete-char       # Delete key to delete characters
+bindkey '^[[3$HOME' delete-char       # Delete key to delete characters
 bindkey '^[[Z' reverse-menu-complete  # Shift+Tab for reverse completion
 
 # Functions for dynamic productivity
@@ -229,16 +229,16 @@ function update_all() {
     echo "Updating pyenv versions..."
     command -v pyenv &>/dev/null && pyenv update
     echo "Updating fzf..."
-    ~/.fzf/install --all
+    $HOME/.fzf/install --all
     echo "All updates completed!"
 }
 
 # Custom prompt tweaks (if needed)
-export PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
+export PROMPT='%F{cyan}%n@%m%f %F{yellow}%$HOME%f %# '
 
 # Load fzf key bindings and completion if installed
-if [ -f ~/.fzf.zsh ]; then
-    source ~/.fzf.zsh
+if [ -f $HOME/.fzf.zsh ]; then
+    source $HOME/.fzf.zsh
 fi
 
 # Optional: Configure the PATH for custom binaries or tools
@@ -261,7 +261,7 @@ case "$TERM" in
 esac
 
 # Run custom initialization scripts if present
-for file in ~/.zshrc.d/*.zsh; do
+for file in $HOME/.zshrc.d/*.zsh; do
     [ -r "$file" ] && source "$file"
 done
 
@@ -288,7 +288,7 @@ fi
 # Optional: Automatically update the terminal title
 case $TERM in
     xterm*|rxvt*|screen*)
-        precmd() { print -Pn "\e]0;%n@%m: %~\a" }
+        precmd() { print -Pn "\e]0;%n@%m: %$HOME\a" }
         ;;
 esac
 
@@ -305,7 +305,7 @@ else
 fi
 
 # Log when the shell session starts (useful for audit or debugging purposes)
-# echo "Session started at $(date)" >> ~/.zsh_session_log
+# echo "Session started at $(date)" >> $HOME/.zsh_session_log
 
 # Comment with versioning note for future reference
 # This .zshrc was last updated on: 2025/01/15
