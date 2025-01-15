@@ -169,7 +169,7 @@ if command -v tmux &>/dev/null && [ ! -f ~/.tmux.conf ]; then
     while true; do
         read -r -p "Do you wish to use a preconfiguration for tmux? [y/N]: " yn
         case $yn in
-            [Yy]*) wget -O ~/.tmux.conf https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/master/.tmux.conf; break ;;
+            [Yy]*) wget -O ~/.tmux.conf https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/.tmux.conf; break ;;
             [Nn]*) break ;;
             *) echo "Please answer yes or no." ;;
         esac
