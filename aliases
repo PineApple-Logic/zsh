@@ -24,10 +24,10 @@ ext ()
 }
 
 export EDITOR=nano
-export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:$HOME/.cargo/bin/
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:/opt/nvim-linux64/bin"
-export PATH="$PATH:~/.local/pipx/venvs/"
+export PATH="$PATH:$HOME/.local/pipx/venvs/"
 
 ## ls aliases
 alias ll='lsd -l'
