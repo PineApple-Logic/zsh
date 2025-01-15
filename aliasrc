@@ -42,25 +42,5 @@ alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 alias batcat='cat'
 
-## Hackers aliases
-alias workspace='cp -fr /home/pineapplelogic/Documents/Notes/Templates/Pen-200/Target/* ./ && cp -fr /home/pineapplelogic/Documents/Notes/Templates/Pen-200/Target/.obsidian ./ && export wg=$(pwd)'
-alias offsec='sudo openvpn /home/pineapplelogic/.VPN/universal.ovpn'
-alias htb='sudo openvpn /home/pineapplelogic/.VPN/lab_PineAppleHack.ovpn'
-alias tryhackme='sudo openvpn /home/pineapplelogic/.VPN/PineAppleLogic.ovpn'
-alias autorecon-ng='sudo $(which autorecon)'
-alias winencode='python3 /home/pineapplelogic/Documents/Scripts/Windows/my_scripts/encode.py'
-alias linencode='python3 /home/pineapplelogic/Documents/Scripts/linux/my_scripts/encode.py'
-alias st='subl'
-# alias listener='bash -c "rlwrap -CAr ncat -lvnp"' # Replaced with function
-alias webserver='uploadserver'
-alias nmap-scan='sudo grc nmap -T4 -p - -sC -sV -sS -vv --open -oN nmap-TCP-scan.txt'
-alias ligolo-startup='sudo ip tuntap add user pineapplelogic mode tun ligolo && sudo ip link set ligolo up'
-alias ligolo-ng='sudo /opt/ligolo/proxy -selfcert'
-alias winscripts='cd ~/Documents/Scripts/Windows'
-alias upgrade-shell='`stty size;stty raw -echo;fg`'
-alias kerbrute='/home/pineapplelogic/go/bin/kerbrute'
-alias bloodhound='cd /opt/BloodHound && sudo docker-compose up'
-
-
 ## Hackers Verables
 export rockyou='/usr/share/wordlists/rockyou.txt'
