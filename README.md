@@ -21,3 +21,8 @@ Download and install the fonts from [here](https://github.com/romkatv/powerlevel
 Finish the conversion by changing your user in /etc/passwd to /bin/zsh instead of /bin/bash
 
 or typing `chsh $USER` and entering `/bin/zsh`
+
+## Credit
+
+- [DreanofAutonomy](https://github.com/dreamsofautonomy/zensh)
+- [ChrisTitusTech](https://github.com/ChrisTitusTech/zsh)
