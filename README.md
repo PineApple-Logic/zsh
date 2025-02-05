@@ -12,6 +12,12 @@ zsh # this will install most of the depedances (fzf, lsd, pyenv, zinit as well a
 tmux
 ```
 
+### Optional for tmux
+```
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
+
 ## Get Dependencies
 
 ### Fonts
