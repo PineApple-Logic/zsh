@@ -57,7 +57,7 @@ PROMPT_EOL_MARK=""
 autoload -Uz compinit && compinit -d $HOME/.cache/zcompdump
 
 # History configuration
-HISTFILE=$HOME/.zsh_history
+HISTFILE=$HOME/.zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify share_history hist_save_no_dups hist_find_no_dups
@@ -85,15 +85,6 @@ bindkey '^[[3;5$HOME' kill-word
 bindkey '^[[3$HOME' delete-char
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
-
-# Aliases and environment
-alias ls='lsd --color=auto'
-alias grep='grep --color=auto'
-
-# Terminal title
-precmd() {
-  print -Pn "\e]0;%n@%m: %$HOME\a"
-}
 
 # Completion settings
 zstyle ':completion:*' menu select
@@ -130,7 +121,6 @@ if [ -x /usr/bin/dircolors ]; then
 
     alias ls='lsd --color=auto'
     alias dir='dir --color=auto'
-    alias cat='cat -n'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -180,12 +170,12 @@ fi
 [[ ! -f $HOME/.p10k.zsh ]] && p10k configure
 
 # Final environment configuration
-export EDITOR="vim"
-export VISUAL="vim"
+#export EDITOR="vim"
+#export VISUAL="vim"
 
 # Load additional configurations if present
-[ -f $HOME/.zsh_aliases ] && source $HOME/.zsh_aliases
-[ -f $HOME/.zsh_functions ] && source $HOME/.zsh_functions
+[ -f $HOME/.zsh/aliases ] && source $HOME/.zsh/aliases
+[ -f $HOME/.zsh/functions ] && source $HOME/.zsh/functions
 
 # Clean up temporary variables
 unset ZINIT_HOME
@@ -221,7 +211,7 @@ function mkcd() {
 }
 
 # Update all relevant tools and dependencies
-function update_all() {
+#function update_all() {
     echo "Updating system packages..."
     sudo apt update && sudo apt upgrade -y
     echo "Updating Zsh plugins..."
@@ -272,37 +262,37 @@ unset file
 setopt SHARE_HISTORY
 
 # Optional: Configure the editor for command-line editing
-export EDITOR=nano  # Change to 'vim' or 'code' if you prefer
+#export EDITOR=nano  # Change to 'vim' or 'code' if you prefer
 
 # Optional: Enable more detailed error messages
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 # Optional: Add a fortune message on terminal startup
-if command -v fortune &>/dev/null; then
-    echo
-    fortune | cowsay -f tux
-    echo
-fi
-
-# Optional: Automatically update the terminal title
-case $TERM in
-    xterm*|rxvt*|screen*)
-        precmd() { print -Pn "\e]0;%n@%m: %$HOME\a" }
-        ;;
-esac
+#if command -v fortune &>/dev/null; then
+#    echo
+#    fortune | cowsay -f tux
+#    echo
+#fi
 
 # Optional: Improve battery status display on laptops
-if command -v acpi &>/dev/null; then
-    alias battery='acpi -i'
-fi
+#if command -v acpi &>/dev/null; then
+#    alias battery='acpi -i'
+#fi
+
+# Optional: Automatically update the terminal title
+# case $TERM in
+#    xterm*|rxvt*|screen*)
+#        precmd() { print -Pn "\e]0;%n@%m: %$HOME\a" }
+#        ;;
+#esac
 
 # Debugging support (toggle via environment variable)
-if [[ -n $ZSH_DEBUG ]]; then
-    set -x
-else
-    set +x
-fi
+#if [[ -n $ZSH_DEBUG ]]; then
+#    set -x
+#else
+#    set +x
+#fi
 
 # Log when the shell session starts (useful for audit or debugging purposes)
 # echo "Session started at $(date)" >> $HOME/.zsh_session_log
