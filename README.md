@@ -6,11 +6,7 @@ My ZSH Config
 ## Get Dependencies
 
 ```
-sudo apt install lsd tmux zsh
-```
-
-```
-sudo dnf install lsd tmux zsh
+sudo apt install lsd zsh
 ```
 
 ### Fonts
@@ -32,6 +28,7 @@ zsh
 
 ### Optional for tmux
 ```
+sudo apt install tmux
 mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 tmux
