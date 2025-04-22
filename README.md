@@ -2,24 +2,16 @@
 
 My ZSH Config
 
-## Setup
-
-```
-git clone https://github.com/PineApple-Logic/zsh.git
-cd zsh
-mv .zshrc ~/
-sudo apt install lsd
-zsh
-tmux
-```
-
-### Optional for tmux
-```
-mkdir -p ~/.config/tmux/plugins/catppuccin
-git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-```
 
 ## Get Dependencies
+
+```
+sudo apt install lsd tmux zsh
+```
+
+```
+sudo dnf install lsd tmux zsh
+```
 
 ### Fonts
 
@@ -29,6 +21,21 @@ Finish the conversion by changing your user in /etc/passwd to /bin/zsh instead o
 
 or typing `chsh $USER` and entering `/bin/zsh`
 
+## Setup
+
+```
+git clone https://github.com/PineApple-Logic/zsh.git
+cd zsh
+mv .zshrc ~/
+zsh
+```
+
+### Optional for tmux
+```
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+tmux
+```
 ## Credit
 
 - [DreanofAutonomy](https://github.com/dreamsofautonomy/zensh)
