@@ -20,9 +20,10 @@ or typing `chsh $USER` and entering `/bin/zsh`
 ## Setup
 
 ```
-git clone https://github.com/PineApple-Logic/zsh.git
-cd zsh
-mv .zshrc ~/
+wget -O ~/.zshrc https://raw.githubusercontent.com/PineApple-Logic/zsh/clean/.zshrc
+mkdir .zsh
+wget -O ~/.zsh/aliases https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/aliases
+wget -O ~/.zsh/functions [https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/aliases](https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/functions)
 zsh
 ```
 
