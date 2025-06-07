@@ -33,6 +33,7 @@ zsh
 ### Optional for tmux
 ```
 sudo apt install tmux
+wget -O ~/.tmux.conf https://github.com/PineApple-Logic/zsh/blob/clean/.tmux.conf
 mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 tmux
