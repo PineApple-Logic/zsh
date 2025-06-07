@@ -26,7 +26,8 @@ wget -O ~/.zsh/aliases https://raw.githubusercontent.com/PineApple-Logic/zsh/ref
 wget -O ~/.zsh/functions https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/functions
 zsh
 ```
-![image](https://github.com/user-attachments/assets/eba743c6-b019-45a4-9031-02d495a7d420)
+![image](https://github.com/user-attachments/assets/22695e55-739e-443c-8585-ff5e0d2942d4)
+
 
 
 
@@ -38,7 +39,8 @@ mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 tmux
 ```
-![image](https://github.com/user-attachments/assets/2761bad5-326f-4353-b833-67c2fd69edf8)
+![image](https://github.com/user-attachments/assets/781a28dd-2b55-4188-ae9a-bacf38fffa91)
+
 
 
 ## Credit
