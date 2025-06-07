@@ -26,8 +26,8 @@ wget -O ~/.zsh/aliases https://raw.githubusercontent.com/PineApple-Logic/zsh/ref
 wget -O ~/.zsh/functions https://raw.githubusercontent.com/PineApple-Logic/zsh/refs/heads/clean/functions
 zsh
 ```
+![image](https://github.com/user-attachments/assets/eba743c6-b019-45a4-9031-02d495a7d420)
 
-![image](https://github.com/user-attachments/assets/23484257-89f2-4712-a15d-91435635b5eb)
 
 
 ### Optional for tmux
