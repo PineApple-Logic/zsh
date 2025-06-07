@@ -11,7 +11,7 @@ sudo apt install lsd zsh
 
 ### Fonts
 
-Download and install the fonts from [here](https://github.com/romkatv/powerlevel10k#fonts)
+Download and install any font from [here]([https://github.com/romkatv/powerlevel10k#fonts](https://www.nerdfonts.com/font-downloads))
   
 Finish the conversion by changing your user in /etc/passwd to /bin/zsh instead of /bin/bash
 
