@@ -27,6 +27,9 @@ wget -O ~/.zsh/functions https://raw.githubusercontent.com/PineApple-Logic/zsh/r
 zsh
 ```
 
+![image](https://github.com/user-attachments/assets/23484257-89f2-4712-a15d-91435635b5eb)
+
+
 ### Optional for tmux
 ```
 sudo apt install tmux
