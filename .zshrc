@@ -78,5 +78,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Shell integrations
-eval "$(fzf)"
+# eval "$(fzf)"
 eval "$(zoxide init --cmd cd zsh)"
