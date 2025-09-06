@@ -6,7 +6,7 @@ My ZSH Config
 ## Get Dependencies
 
 ```
-sudo apt install lsd zsh
+sudo apt install lsd zsh git
 ```
 
 ### Fonts
