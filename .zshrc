@@ -50,6 +50,8 @@ bindkey -e
 bindkey '^[[1;2A' history-search-backward # Shift+ Arrow up
 bindkey '^[[1;2B^C' history-search-forward # Shift + Arrow Down
 bindkey '^[w' kill-region
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
 
 # History
 HISTSIZE=5000
